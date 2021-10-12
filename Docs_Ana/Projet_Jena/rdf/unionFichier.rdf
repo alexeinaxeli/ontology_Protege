@@ -1,0 +1,848 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb">
+    <rdfs:comment xml:lang="fr">Cette ontologie décrit la littérature fantastique en Français et en Espagnol</rdfs:comment>
+    <rdfs:comment xml:lang="es">Esta ontologia describe la Literatura Fantastica en frances y en español</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Publisher">
+    <rdfs:label xml:lang="fr">Imprimeur</rdfs:label>
+    <rdfs:label xml:lang="es">Quien publica</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Moderne">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Classiques">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial">
+    <rdfs:label xml:lang="fr">Editeur</rdfs:label>
+    <rdfs:label xml:lang="es">Editorial</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book">
+    <rdfs:label xml:lang="es">Libro</rdfs:label>
+    <rdfs:label xml:lang="fr">Livre</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Hard_cover">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Format"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="fr">Grand format</rdfs:label>
+    <rdfs:label xml:lang="es">Tapa dura</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Digital">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Format"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="es">Digital</rdfs:label>
+    <rdfs:label xml:lang="fr">Electronique</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Paperback">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Format"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="es">De bolsillo</rdfs:label>
+    <rdfs:label xml:lang="fr">Poche</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author">
+    <rdfs:label xml:lang="fr">Auteur</rdfs:label>
+    <rdfs:label xml:lang="es">Autor</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Cheap">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#cost"/>
+            </owl:onProperty>
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >8</owl:maxCardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="es">Económico</rdfs:label>
+    <rdfs:label xml:lang="fr">Pas cher</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Gender">
+    <rdfs:label xml:lang="es">Género</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author_Spanish">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#its_language"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="fr">Auteur hispanophone</rdfs:label>
+    <rdfs:label xml:lang="es">Autor hispano</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author_French">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#its_language"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#French"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="fr">Auteur Français</rdfs:label>
+    <rdfs:label xml:lang="es">Autor francés</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Language"/>
+    </rdfs:subClassOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="es">Español</rdfs:label>
+    <rdfs:label xml:lang="fr">Espagnol</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Illustrator">
+    <rdfs:label xml:lang="fr">Illustrateur</rdfs:label>
+    <rdfs:label xml:lang="es">Ilustrador</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Traducteur">
+    <rdfs:label xml:lang="fr">Traducteur</rdfs:label>
+    <rdfs:label xml:lang="es">Traductor</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Format">
+    <rdfs:label xml:lang="fr">Format</rdfs:label>
+    <rdfs:label xml:lang="es">Formato</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Expensive">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="es">Caro</rdfs:label>
+    <rdfs:label xml:lang="fr">Cher</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#French">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Language"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Français</rdfs:label>
+    <rdfs:label xml:lang="es">Francés</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Public">
+    <rdfs:label xml:lang="fr">Public</rdfs:label>
+    <rdfs:label xml:lang="es">Público</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Style">
+    <rdfs:label xml:lang="fr">Genre</rdfs:label>
+    <rdfs:label xml:lang="es">Género</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Creator">
+    <rdfs:label xml:lang="fr">Concepteur</rdfs:label>
+    <rdfs:label xml:lang="es">Creador</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Adults">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Public"/>
+    <rdfs:label xml:lang="fr">Adult</rdfs:label>
+    <rdfs:label xml:lang="es">Adulto</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Speculative_fiction">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Style"/>
+    <rdfs:label xml:lang="es">Literatura Fantástica</rdfs:label>
+    <rdfs:label xml:lang="fr">Littératures de l'imaginaire</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Language">
+    <rdfs:label xml:lang="es">Idioma</rdfs:label>
+    <rdfs:label xml:lang="fr">Langue</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Kids">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Public"/>
+    <rdfs:label xml:lang="fr">Enfants</rdfs:label>
+    <rdfs:label xml:lang="es">Infantil</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Teenagers">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Public"/>
+    <rdfs:label xml:lang="fr">Adolescents</rdfs:label>
+    <rdfs:label xml:lang="es">Juvenil</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#published">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#published_by"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="fr">a edité</rdfs:label>
+    <rdfs:label xml:lang="es">publicó</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#is_language">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#its_language"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Language"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="es">es el idioma de</rdfs:label>
+    <rdfs:label xml:lang="fr">est langue de</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#imagined">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#imagined_by"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Creator"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="fr">a conçu</rdfs:label>
+    <rdfs:label xml:lang="es">fue concebido</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#illustrated">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#illustrated_by"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Illustrator"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="fr">a illustré</rdfs:label>
+    <rdfs:label xml:lang="es">ilustrado por</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#translated_by">
+    <rdfs:label xml:lang="es">traducido por</rdfs:label>
+    <rdfs:label xml:lang="fr">traduit par</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#wrote_by">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <rdfs:label xml:lang="fr">a été écrit par</rdfs:label>
+    <rdfs:label xml:lang="es">escrito por</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#printed_by">
+    <rdfs:label xml:lang="es">impreso por</rdfs:label>
+    <rdfs:label xml:lang="fr">imprimé par</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#has_style">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#is_style_of"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Style"/>
+    <rdfs:label xml:lang="fr">a comme genre</rdfs:label>
+    <rdfs:label xml:lang="es">su género es</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#wrote">
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#wrote_by"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="fr">a écrit</rdfs:label>
+    <rdfs:label xml:lang="es">escribió</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#illustrated_by">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:label xml:lang="fr">illustré par</rdfs:label>
+    <rdfs:label xml:lang="es">ilustrado por</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#printed">
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#printed_by"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Publisher"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="fr">a imprimé</rdfs:label>
+    <rdfs:label xml:lang="es">impreso por</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#has_gender">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Gender"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#has_format">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Format"/>
+    <rdfs:label xml:lang="fr">a format</rdfs:label>
+    <rdfs:label xml:lang="es">tiene como formato</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#imagined_by">
+    <rdfs:label xml:lang="fr">conçu par</rdfs:label>
+    <rdfs:label xml:lang="es">imaginado por</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#published_by">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial"/>
+    <rdfs:label xml:lang="fr">est edité par</rdfs:label>
+    <rdfs:label xml:lang="es">publicado por</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#is_style_of">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Style"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="es">es el estilo de</rdfs:label>
+    <rdfs:label xml:lang="fr">est genre de</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#for_public">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#has_public"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="es">es el publico de</rdfs:label>
+    <rdfs:label xml:lang="fr">est public de</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#translated">
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#translated_by"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Traducteur"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:label xml:lang="fr">a traduit</rdfs:label>
+    <rdfs:label xml:lang="es">tradujo</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#its_language">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Language"/>
+    <rdfs:label xml:lang="fr">a comme langue</rdfs:label>
+    <rdfs:label xml:lang="es">su idioma es</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#has_public">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Public"/>
+    <rdfs:label xml:lang="fr">a public</rdfs:label>
+    <rdfs:label xml:lang="es">dirigido al publico</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#cost">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment xml:lang="es">costo</rdfs:comment>
+    <rdfs:comment xml:lang="fr">coûte</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#date_of_publication">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdfs:label xml:lang="fr">a date publication</rdfs:label>
+    <rdfs:label xml:lang="es">fecha de publicación</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#a_lieu_publication">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Claudia_Andrade_Ecchio">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Maleficio:_El_brujo_y_su_sombra">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Speculative_fiction"/>
+          </owl:NamedIndividual>
+        </has_style>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Arkane">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_public>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Adulte">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Public"/>
+      </owl:NamedIndividual>
+    </has_public>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+    <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#French"/>
+    <published>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Bragelonne"/>
+    </published>
+    <wrote_by>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Pierre_Bordage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+      </owl:NamedIndividual>
+    </wrote_by>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >7</cost>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Emiliano_González">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Los_sueños_de_la_Bella_Durmiente">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Speculative_fiction"/>
+          </owl:NamedIndividual>
+        </has_style>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Jean-Claude_Lattès">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Doce_cuentos_peregrinos">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_style>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Horreur">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Speculative_fiction"/>
+      </owl:NamedIndividual>
+    </has_style>
+    <a_lieu_publication>Bogota Colombia</a_lieu_publication>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >7</cost>
+    <date_of_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1992</date_of_publication>
+  </owl:NamedIndividual>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Cheap"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Classiques"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Expensive"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Moderne"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Miesis">
+    <owl:sameAs>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Sylvie_Veyres">
+        <illustrated>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Kel">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+            <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+            <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#French"/>
+            <published>
+              <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Rebelle_éditions"/>
+            </published>
+            <wrote_by>
+              <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Andréa_Schwartz">
+                <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+                <has_gender>
+                  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Feminine">
+                    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Gender"/>
+                  </owl:NamedIndividual>
+                </has_gender>
+              </owl:NamedIndividual>
+            </wrote_by>
+            <a_lieu_publication>Mérignac, France</a_lieu_publication>
+            <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >20</cost>
+            <date_of_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >2013</date_of_publication>
+          </owl:NamedIndividual>
+        </illustrated>
+      </owl:NamedIndividual>
+    </owl:sameAs>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Jean_Bourget">
+    <illustrated>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Lune_mauve">
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#French"/>
+        <wrote_by>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Marilou_Aznar">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+          </owl:NamedIndividual>
+        </wrote_by>
+        <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >15</cost>
+        <date_of_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >2013</date_of_publication>
+      </owl:NamedIndividual>
+    </illustrated>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Javier_Negrete">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_espada_de_fuego">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_Volte">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial"/>
+    <published>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_Horde_du_contrevent">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+      </owl:NamedIndividual>
+    </published>
+    <published>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_Zone_du_dehors">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <wrote_by>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Alain_Damasio">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+            <has_gender>
+              <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Masculine">
+                <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Gender"/>
+              </owl:NamedIndividual>
+            </has_gender>
+            <wrote rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_Horde_du_contrevent"/>
+            <wrote rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_Zone_du_dehors"/>
+          </owl:NamedIndividual>
+        </wrote_by>
+      </owl:NamedIndividual>
+    </published>
+    <published>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Les_Furtifs">
+        <illustrated_by>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Esther_Szac">
+            <imagined rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Les_Furtifs"/>
+          </owl:NamedIndividual>
+        </illustrated_by>
+        <wrote_by rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Alain_Damasio"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >25</cost>
+        <printed_by>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Nouvelle_Imprimerie_Laballery"/>
+        </printed_by>
+        <a_lieu_publication>Clamecy, France</a_lieu_publication>
+        <has_style>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Speculative_fiction"/>
+          </owl:NamedIndividual>
+        </has_style>
+        <date_of_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >2019</date_of_publication>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#French"/>
+      </owl:NamedIndividual>
+    </published>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Camila_Velenzuela_León">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <has_gender rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Feminine"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Nieve_negra">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Jeunesse"/>
+  <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#a_imprimé"/>
+  <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#imprimé_par"/>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Casterman">
+    <published rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Lune_mauve"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Les_Guerriers_du_silence"/>
+  <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#illustré_par"/>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Angélica_Gorodischer">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <has_gender rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Feminine"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Kalpa_Imperial">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+      </owl:NamedIndividual>
+    </wrote>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_noche_del_inocente">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique"/>
+      </owl:NamedIndividual>
+    </wrote>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Trafalgar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/">
+    <vcard:N>Litterature</vcard:N>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Alphonse_Daudet">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Lettres_de_mon_moulin"/>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fleuve_Noir">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Bernardo_Esquinca">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Saga_Casasola">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Horreur"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Serge_Brussolo">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/">
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/Kalpa_Imperial">
+        <vcard:Country>Argentina</vcard:Country>
+        <vcard:BDAY>1983</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/El_festival_de_la_blasfemia">
+        <vcard:Country>Venezuela</vcard:Country>
+        <vcard:BDAY>2016</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/Luna_de_Plutón">
+        <vcard:Country>Argentina</vcard:Country>
+        <vcard:BDAY>2015</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/Doce_cuentos_peregrinos">
+        <vcard:Country>Colombia</vcard:Country>
+        <vcard:BDAY>1992</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:FN>Escritos en Español</vcard:FN>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Les_Fables_de_l_Humpur">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <wrote_by rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Pierre_Bordage"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Maury_Imprimeur">
+    <printed>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#L_Enchanteur">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#French"/>
+        <published>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Folio">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial"/>
+          </owl:NamedIndividual>
+        </published>
+        <published_by rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Folio"/>
+        <wrote_by>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#René_Barjavel">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+          </owl:NamedIndividual>
+        </wrote_by>
+        <a_lieu_publication>Malesherbes, France</a_lieu_publication>
+        <date_of_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >2018</date_of_publication>
+      </owl:NamedIndividual>
+    </printed>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Les_Cavaliers_de_la_pyramide"/>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_Planète_des_singes">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+    <wrote_by>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Pierre_Boulle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+      </owl:NamedIndividual>
+    </wrote_by>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Cybergolem">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+    <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+    <wrote_by>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Martha_Elisa_Camacho_Alcázar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+      </owl:NamedIndividual>
+    </wrote_by>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >12</cost>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Elodie_Bouédec">
+    <illustrated rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#L_Enchanteur"/>
+  </owl:NamedIndividual>
+  <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#a_conçu"/>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Daína_Chaviano">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <has_gender rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Feminine"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Historias_de_hadas_para_adultos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+      </owl:NamedIndividual>
+    </wrote>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Los_mundos_que_amo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Patricio_Sturlese">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#El_jardin_de_los_ciervos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Gothique">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Speculative_fiction"/>
+          </owl:NamedIndividual>
+        </has_style>
+      </owl:NamedIndividual>
+    </wrote>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#El_umbral_del_bosque">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Horreur"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnFrancais/">
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/Paris_for_dummies">
+        <vcard:Country>France</vcard:Country>
+        <vcard:BDAY>2010</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/Les_Furtifs">
+        <vcard:Country>Clamecy, France</vcard:Country>
+        <vcard:BDAY>2019</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnEspagnol/L_Enchanteur">
+        <vcard:Country>Malesherbes, France</vcard:Country>
+        <vcard:BDAY>2018</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:N>
+      <rdf:Description rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb/livres/EnFrancais/Kel">
+        <vcard:Country>Mérignac, France</vcard:Country>
+        <vcard:BDAY>2013</vcard:BDAY>
+      </rdf:Description>
+    </vcard:N>
+    <vcard:FN>Escritos en Francais</vcard:FN>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Guy_de_Maupassant">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Le_Horla"/>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Rafael_Marín_Trechera">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Lágrimas_de_luz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Jorge_Luis_Borges">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author_French"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author_Spanish"/>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#El_Aleph">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+        <published_by>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Emecé_Editores">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Editorial"/>
+          </owl:NamedIndividual>
+        </published_by>
+        <wrote_by rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Jorge_Luis_Borges"/>
+        <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >9</cost>
+        <date_of_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1949</date_of_publication>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#El_vuelo_del_hipogrifo">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique"/>
+    <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+    <wrote_by>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Elia_Barceló">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+        <wrote rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#El_vuelo_del_hipogrifo"/>
+      </owl:NamedIndividual>
+    </wrote_by>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Maite_Carranza">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#La_guerra_de_las_brujas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+        <wrote_by rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Maite_Carranza"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Javier_SIerra_Albert">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#El_fuego_invisible">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+        <wrote_by rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Javier_SIerra_Albert"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Loba">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+    <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+    <wrote_by>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Veronica_Murguía">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+        <wrote rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Loba"/>
+      </owl:NamedIndividual>
+    </wrote_by>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Las_islas">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Science-fiction"/>
+    <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+    <wrote_by>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Carlos_Yushimito">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+        <has_gender rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Masculine"/>
+        <wrote rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Las_islas"/>
+      </owl:NamedIndividual>
+    </wrote_by>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#En_el_secreto_de_los_sueños">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+    <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantastique"/>
+    <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+    <wrote_by>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Luis_Salvador_Jaramillo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+        <wrote rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#En_el_secreto_de_los_sueños"/>
+      </owl:NamedIndividual>
+    </wrote_by>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Laura_Gallego_García">
+    <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Author"/>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#El_Libro_de_los_portales">
+        <has_public>
+          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Jeune_Adulte">
+            <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Public"/>
+          </owl:NamedIndividual>
+        </has_public>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+      </owl:NamedIndividual>
+    </wrote>
+    <wrote>
+      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Memorias_de_Idhún">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Book"/>
+        <has_style rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Fantasy"/>
+        <its_language rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Spanish"/>
+        <wrote_by rdf:resource="http://www.semanticweb.org/alexane_ana/projet_semantiqueweb#Laura_Gallego_García"/>
+      </owl:NamedIndividual>
+    </wrote>
+  </owl:NamedIndividual>
+</rdf:RDF>

@@ -1,0 +1,493 @@
+@prefix : <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/alexane/ana/livre> .
+
+<http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7@has_genre
+:has_genre rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+		 rdfs:label "a_genre"@fr ,
+					 "tiene_como_genero"@es ;
+         owl:inverseOf :is_genre_of ;
+         rdfs:domain :Livre ;
+         rdfs:range :Style .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#wrote
+:wrote 	 rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+		 rdfs:label "a_écrit"@fr ,
+		 		    "escribio"@es ;
+         owl:inverseOf :written_by ;
+         rdfs:domain :Auteur ;
+         rdfs:range :Livre .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#edited
+:edited rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+		 rdfs:label "a_édité"@fr ,
+					"edito"@es ;
+         owl:inverseOf :edited_by;
+         rdfs:domain :Editeur ;
+         rdfs:range :Livre .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#is_genre_of
+:is_genre_of  rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+			  rdfs:label "genre_de"@fr ,
+						 "genero_de"@es ;
+              rdfs:domain :Style ;
+              rdfs:range :Livre .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#written_by
+:written_by rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+		   rdfs:label "écrit_par"@fr ,
+					  "escrito_por"@es ;
+           rdfs:domain :Livre ;
+           rdfs:range :Auteur .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#edited_by
+:edited_by rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+		   rdfs:label "édité_par"@fr ,
+					  "editado_por"@es ;
+           rdfs:domain :Livre ;
+           rdfs:range :Editeur .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/alexane/ana/livre#was_published_in
+:was_published_in rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Book ;
+				  rdfs:label "publié_en"@fr ,
+							 "publicado_en"@es ;
+                  rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#has_format
+:has_format rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+		  rdfs:label "a_format"@fr ,
+					 "tiene_formato"@es ;
+          rdfs:domain :Book .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#has_language
+:has_language rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Livre ;
+		  rdfs:label "a_langue"@fr ,
+					 "tiene_language"@es ;
+          rdfs:range xsd:language .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#grand_format
+:grand_format rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :has_format .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#poche
+:poche rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :has_format .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#électronique
+:électronique rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :has_format .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/alexane/ana/livre#Author
+:Author rdf:type owl:Class ;
+		rdfs:label "auteur"@fr ,
+				   "autor"@es .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Editor
+:Editor rdf:type owl:Class ;
+		rdfs:label "éditeur"@fr ,
+				   "editor"@es .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Book
+:Book rdf:type owl:Class ;
+	  rdfs:label "livre"@fr ,
+				 "libro"@es .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Style
+:Style rdf:type owl:Class ;
+	   rdfs:label "style"@fr ,
+				  "estilo"@es .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Littératures_de_l'imaginaire
+<http://www.semanticweb.org/alexane/ana/livre#Littératures_de_l'imaginaire> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf :Style .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/alexane/ana/livre#Alain_Damasio
+:Alain_Damasio rdf:type owl:NamedIndividual ;
+               :a_écrit :La_Horde_du_contrevent ,
+                        :La_Zone_du_dehors .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Alphonse_Daudet
+:Alphonse_Daudet rdf:type owl:NamedIndividual ;
+                 :a_écrit :Lettres_de_mon_moulin .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Andréa_Schwartz
+:Andréa_Schwartz rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Angélica_Gorodischer
+:Angélica_Gorodischer rdf:type owl:NamedIndividual ;
+                      :a_écrit :Kalpa_Imperial ,
+                               :Trafalgar .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Arkane
+:Arkane rdf:type owl:NamedIndividual ;
+        :a_genre :Fantasy ;
+        :écrit_par :Pierre_Bordage ;
+        :édité_par :Bragelonne .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Bragelonne
+:Bragelonne rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Camila_Velenzuela_León
+:Camila_Velenzuela_León rdf:type owl:NamedIndividual ;
+                        :a_écrit :Nieve_negra .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Carlos_Yushimito
+:Carlos_Yushimito rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Claudio_Andrade_Ecchio
+:Claudio_Andrade_Ecchio rdf:type owl:NamedIndividual ;
+                        :a_écrit :Maleficio:_El_brujo_y_su_sombra .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Cybergolem
+:Cybergolem rdf:type owl:NamedIndividual ;
+            :écrit_par :Martha_Elisa_Camacho_Alcázar ;
+            :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Daína_Chaviano
+:Daína_Chaviano rdf:type owl:NamedIndividual ;
+                :a_écrit :Historias_de_hadas_para_adultos ,
+                         :Los_mundos_que_amo .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#El_Aleph
+:El_Aleph rdf:type owl:NamedIndividual ;
+          :a_genre :Fantastique ;
+          :écrit_par :Jorge_Luis_Borges ;
+          :édité_par :Emecé_Editores ;
+          :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#El_Libro_de_los_portales
+:El_Libro_de_los_portales rdf:type owl:NamedIndividual ;
+                          :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#El_fuego_invisible
+:El_fuego_invisible rdf:type owl:NamedIndividual ;
+                    :écrit_par :Javier_SIerra_Albert ;
+                    :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#El_vuelo_del_hipogrifo
+:El_vuelo_del_hipogrifo rdf:type owl:NamedIndividual ;
+                        :écrit_par :Elia_Barceló ;
+                        :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Elia_Barceló
+:Elia_Barceló rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Emecé_Editores
+:Emecé_Editores rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Emiliano_González
+:Emiliano_González rdf:type owl:NamedIndividual ;
+                   :a_écrit :Los_sueños_de_la_Bella_Durmiente .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#En_el_secreto_de_los_sueños
+:En_el_secreto_de_los_sueños rdf:type owl:NamedIndividual ;
+                             :écrit_par :Luis_Salvador_Jaramillo ;
+                             :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Fantastique
+:Fantastique rdf:type owl:NamedIndividual ,
+                      <http://www.semanticweb.org/alexane/ana/livre#Littératures_de_l'imaginaire> ;
+             :a_genre :Fantasy .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Fantasy
+:Fantasy rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/alexane/ana/livre#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Fleuve_Noir
+:Fleuve_Noir rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Folio
+:Folio rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Gothique
+:Gothique rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/alexane/ana/livre#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Guy_de_Maupassant
+:Guy_de_Maupassant rdf:type owl:NamedIndividual ;
+                   :a_écrit :Le_Horla .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Historias_de_hadas_para_adultos
+:Historias_de_hadas_para_adultos rdf:type owl:NamedIndividual ;
+                                 :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Horreur
+:Horreur rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/alexane/ana/livre#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Javier_Negrete
+:Javier_Negrete rdf:type owl:NamedIndividual ;
+                :a_écrit :La_espada_de_fuego .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Javier_SIerra_Albert
+:Javier_SIerra_Albert rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Jean-Claude_Lattès
+:Jean-Claude_Lattès rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Jorge_Luis_Borges
+:Jorge_Luis_Borges rdf:type owl:NamedIndividual ;
+                   :a_genre :Fantastique .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Kalpa_Imperial
+:Kalpa_Imperial rdf:type owl:NamedIndividual ;
+                :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Kel
+:Kel rdf:type owl:NamedIndividual ;
+     :écrit_par :Andréa_Schwartz .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#La_Horde_du_contrevent
+:La_Horde_du_contrevent rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#La_Planète_des_singes
+:La_Planète_des_singes rdf:type owl:NamedIndividual ;
+                       :a_genre :Science-fiction ;
+                       :écrit_par :Pierre_Boulle .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#La_Volte
+:La_Volte rdf:type owl:NamedIndividual ;
+          :a_édité :La_Horde_du_contrevent ,
+                   :La_Zone_du_dehors ,
+                   :Les_Furtifs .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#La_Zone_du_dehors
+:La_Zone_du_dehors rdf:type owl:NamedIndividual ;
+                   :écrit_par :Alain_Damasio .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#La_espada_de_fuego
+:La_espada_de_fuego rdf:type owl:NamedIndividual ;
+                    :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#La_guerra_de_las_brujas
+:La_guerra_de_las_brujas rdf:type owl:NamedIndividual ;
+                         :écrit_par :Maite_Carranza ;
+                         :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Las_islas
+:Las_islas rdf:type owl:NamedIndividual ;
+           :écrit_par :Carlos_Yushimito ;
+           :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Laura_Gallego_García
+:Laura_Gallego_García rdf:type owl:NamedIndividual ;
+                      :a_écrit :El_Libro_de_los_portales .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Le_Horla
+:Le_Horla rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Les_Cavaliers_de_la_pyramide
+:Les_Cavaliers_de_la_pyramide rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Les_Furtifs
+:Les_Furtifs rdf:type owl:NamedIndividual ;
+             :écrit_par :Alain_Damasio .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Les_Guerriers_du_silence
+:Les_Guerriers_du_silence rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Lettres_de_mon_moulin
+:Lettres_de_mon_moulin rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Loba
+:Loba rdf:type owl:NamedIndividual ;
+      :écrit_par :Veronica_Murguía ;
+      :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Los_mundos_que_amo
+:Los_mundos_que_amo rdf:type owl:NamedIndividual ;
+                    :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Los_sueños_de_la_Bella_Durmiente
+:Los_sueños_de_la_Bella_Durmiente rdf:type owl:NamedIndividual ;
+                                  :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Luis_Salvador_Jaramillo
+:Luis_Salvador_Jaramillo rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Lune_Mauve
+:Lune_Mauve rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Lágrimas_de_luz
+:Lágrimas_de_luz rdf:type owl:NamedIndividual ;
+                 :écrit_par :Rafael_Marín_Trechera ;
+                 :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Maite_Carranza
+:Maite_Carranza rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Marilou_Aznar
+:Marilou_Aznar rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Martha_Elisa_Camacho_Alcázar
+:Martha_Elisa_Camacho_Alcázar rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Memorias_de_Idhún
+:Memorias_de_Idhún rdf:type owl:NamedIndividual ;
+                   :écrit_par :Laura_Gallego_García ;
+                   :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Nieve_negra
+:Nieve_negra rdf:type owl:NamedIndividual ;
+             :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Pierre_Bordage
+:Pierre_Bordage rdf:type owl:NamedIndividual ;
+                :a_écrit :Les_Guerriers_du_silence .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Pierre_Boulle
+:Pierre_Boulle rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Rafael_Marín_Trechera
+:Rafael_Marín_Trechera rdf:type owl:NamedIndividual ;
+                       :a_écrit :Lune_Mauve .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#René_Barjavel
+:René_Barjavel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Science-fiction
+:Science-fiction rdf:type owl:NamedIndividual ,
+                          <http://www.semanticweb.org/alexane/ana/livre#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Serge_Brussolo
+:Serge_Brussolo rdf:type owl:NamedIndividual ;
+                :a_écrit :Les_Cavaliers_de_la_pyramide .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Trafalgar
+:Trafalgar rdf:type owl:NamedIndividual ;
+           :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Veronica_Murguía
+:Veronica_Murguía rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#L'Enchanteur
+<http://www.semanticweb.org/alexane/ana/livre#L'Enchanteur> rdf:type owl:NamedIndividual ;
+                                                            :a_genre :Fantasy ;
+                                                            :écrit_par :René_Barjavel ;
+                                                            :édité_par :Folio .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Les_Fables_de_l'Humpur
+<http://www.semanticweb.org/alexane/ana/livre#Les_Fables_de_l'Humpur> rdf:type owl:NamedIndividual ;
+                                                                      :écrit_par :Pierre_Bordage .
+
+
+###  http://www.semanticweb.org/alexane/ana/livre#Maleficio:_El_brujo_y_su_sombra
+:Maleficio:_El_brujo_y_su_sombra rdf:type owl:NamedIndividual ;
+                                 :a_langue "espagnol" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

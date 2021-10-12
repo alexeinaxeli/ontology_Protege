@@ -1,0 +1,467 @@
+@prefix : <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7> .
+
+<http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#a_genre
+:a_genre rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         owl:inverseOf :est_genre_de ;
+         rdfs:domain :Livre ;
+         rdfs:range :Style .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#a_écrit
+:a_écrit rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         owl:inverseOf :écrit_par ;
+         rdfs:domain :Auteur ;
+         rdfs:range :Livre .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#a_édité
+:a_édité rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         owl:inverseOf :édité_par ;
+         rdfs:domain :Editeur ;
+         rdfs:range :Livre .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#est_genre_de
+:est_genre_de rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Style ;
+              rdfs:range :Livre .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#écrit_par
+:écrit_par rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Livre ;
+           rdfs:range :Auteur .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#édité_par
+:édité_par rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Livre ;
+           rdfs:range :Editeur .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#a_date_publication
+:a_date_publication rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Livre ;
+                    rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#a_format
+:a_format rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :Livre .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#a_langue
+:a_langue rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Livre ;
+          rdfs:range xsd:language .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#grand_format
+:grand_format rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :a_format .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#poche
+:poche rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :a_format .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#électronique
+:électronique rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :a_format .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Auteur
+:Auteur rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Editeur
+:Editeur rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Livre
+:Livre rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Style
+:Style rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Littératures_de_l'imaginaire
+<http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Littératures_de_l'imaginaire> rdf:type owl:Class ;
+                                                                                                      rdfs:subClassOf :Style .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Alain_Damasio
+:Alain_Damasio rdf:type owl:NamedIndividual ;
+               :a_écrit :La_Horde_du_contrevent ,
+                        :La_Zone_du_dehors .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Alphonse_Daudet
+:Alphonse_Daudet rdf:type owl:NamedIndividual ;
+                 :a_écrit :Lettres_de_mon_moulin .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Andréa_Schwartz
+:Andréa_Schwartz rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Angélica_Gorodischer
+:Angélica_Gorodischer rdf:type owl:NamedIndividual ;
+                      :a_écrit :Kalpa_Imperial ,
+                               :Trafalgar .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Arkane
+:Arkane rdf:type owl:NamedIndividual ;
+        :a_genre :Fantasy ;
+        :écrit_par :Pierre_Bordage ;
+        :édité_par :Bragelonne .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Bragelonne
+:Bragelonne rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Camila_Velenzuela_León
+:Camila_Velenzuela_León rdf:type owl:NamedIndividual ;
+                        :a_écrit :Nieve_negra .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Carlos_Yushimito
+:Carlos_Yushimito rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Claudio_Andrade_Ecchio
+:Claudio_Andrade_Ecchio rdf:type owl:NamedIndividual ;
+                        :a_écrit :Maleficio:_El_brujo_y_su_sombra .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Cybergolem
+:Cybergolem rdf:type owl:NamedIndividual ;
+            :écrit_par :Martha_Elisa_Camacho_Alcázar ;
+            :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Daína_Chaviano
+:Daína_Chaviano rdf:type owl:NamedIndividual ;
+                :a_écrit :Historias_de_hadas_para_adultos ,
+                         :Los_mundos_que_amo .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#El_Aleph
+:El_Aleph rdf:type owl:NamedIndividual ;
+          :a_genre :Fantastique ;
+          :écrit_par :Jorge_Luis_Borges ;
+          :édité_par :Emecé_Editores ;
+          :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#El_Libro_de_los_portales
+:El_Libro_de_los_portales rdf:type owl:NamedIndividual ;
+                          :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#El_fuego_invisible
+:El_fuego_invisible rdf:type owl:NamedIndividual ;
+                    :écrit_par :Javier_SIerra_Albert ;
+                    :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#El_vuelo_del_hipogrifo
+:El_vuelo_del_hipogrifo rdf:type owl:NamedIndividual ;
+                        :écrit_par :Elia_Barceló ;
+                        :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Elia_Barceló
+:Elia_Barceló rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Emecé_Editores
+:Emecé_Editores rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Emiliano_González
+:Emiliano_González rdf:type owl:NamedIndividual ;
+                   :a_écrit :Los_sueños_de_la_Bella_Durmiente .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#En_el_secreto_de_los_sueños
+:En_el_secreto_de_los_sueños rdf:type owl:NamedIndividual ;
+                             :écrit_par :Luis_Salvador_Jaramillo ;
+                             :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Fantastique
+:Fantastique rdf:type owl:NamedIndividual ,
+                      <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Littératures_de_l'imaginaire> ;
+             :a_genre :Fantasy .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Fantasy
+:Fantasy rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Fleuve_Noir
+:Fleuve_Noir rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Folio
+:Folio rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Gothique
+:Gothique rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Guy_de_Maupassant
+:Guy_de_Maupassant rdf:type owl:NamedIndividual ;
+                   :a_écrit :Le_Horla .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Historias_de_hadas_para_adultos
+:Historias_de_hadas_para_adultos rdf:type owl:NamedIndividual ;
+                                 :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Horreur
+:Horreur rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Javier_Negrete
+:Javier_Negrete rdf:type owl:NamedIndividual ;
+                :a_écrit :La_espada_de_fuego .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Javier_SIerra_Albert
+:Javier_SIerra_Albert rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Jean-Claude_Lattès
+:Jean-Claude_Lattès rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Jorge_Luis_Borges
+:Jorge_Luis_Borges rdf:type owl:NamedIndividual ;
+                   :a_genre :Fantastique .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Kalpa_Imperial
+:Kalpa_Imperial rdf:type owl:NamedIndividual ;
+                :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Kel
+:Kel rdf:type owl:NamedIndividual ;
+     :écrit_par :Andréa_Schwartz .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#La_Horde_du_contrevent
+:La_Horde_du_contrevent rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#La_Planète_des_singes
+:La_Planète_des_singes rdf:type owl:NamedIndividual ;
+                       :a_genre :Science-fiction ;
+                       :écrit_par :Pierre_Boulle .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#La_Volte
+:La_Volte rdf:type owl:NamedIndividual ;
+          :a_édité :La_Horde_du_contrevent ,
+                   :La_Zone_du_dehors ,
+                   :Les_Furtifs .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#La_Zone_du_dehors
+:La_Zone_du_dehors rdf:type owl:NamedIndividual ;
+                   :écrit_par :Alain_Damasio .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#La_espada_de_fuego
+:La_espada_de_fuego rdf:type owl:NamedIndividual ;
+                    :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#La_guerra_de_las_brujas
+:La_guerra_de_las_brujas rdf:type owl:NamedIndividual ;
+                         :écrit_par :Maite_Carranza ;
+                         :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Las_islas
+:Las_islas rdf:type owl:NamedIndividual ;
+           :écrit_par :Carlos_Yushimito ;
+           :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Laura_Gallego_García
+:Laura_Gallego_García rdf:type owl:NamedIndividual ;
+                      :a_écrit :El_Libro_de_los_portales .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Le_Horla
+:Le_Horla rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Les_Cavaliers_de_la_pyramide
+:Les_Cavaliers_de_la_pyramide rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Les_Furtifs
+:Les_Furtifs rdf:type owl:NamedIndividual ;
+             :écrit_par :Alain_Damasio .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Les_Guerriers_du_silence
+:Les_Guerriers_du_silence rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Lettres_de_mon_moulin
+:Lettres_de_mon_moulin rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Loba
+:Loba rdf:type owl:NamedIndividual ;
+      :écrit_par :Veronica_Murguía ;
+      :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Los_mundos_que_amo
+:Los_mundos_que_amo rdf:type owl:NamedIndividual ;
+                    :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Los_sueños_de_la_Bella_Durmiente
+:Los_sueños_de_la_Bella_Durmiente rdf:type owl:NamedIndividual ;
+                                  :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Luis_Salvador_Jaramillo
+:Luis_Salvador_Jaramillo rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Lune_Mauve
+:Lune_Mauve rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Lágrimas_de_luz
+:Lágrimas_de_luz rdf:type owl:NamedIndividual ;
+                 :écrit_par :Rafael_Marín_Trechera ;
+                 :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Maite_Carranza
+:Maite_Carranza rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Marilou_Aznar
+:Marilou_Aznar rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Martha_Elisa_Camacho_Alcázar
+:Martha_Elisa_Camacho_Alcázar rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Memorias_de_Idhún
+:Memorias_de_Idhún rdf:type owl:NamedIndividual ;
+                   :écrit_par :Laura_Gallego_García ;
+                   :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Nieve_negra
+:Nieve_negra rdf:type owl:NamedIndividual ;
+             :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Pierre_Bordage
+:Pierre_Bordage rdf:type owl:NamedIndividual ;
+                :a_écrit :Les_Guerriers_du_silence .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Pierre_Boulle
+:Pierre_Boulle rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Rafael_Marín_Trechera
+:Rafael_Marín_Trechera rdf:type owl:NamedIndividual ;
+                       :a_écrit :Lune_Mauve .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#René_Barjavel
+:René_Barjavel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Science-fiction
+:Science-fiction rdf:type owl:NamedIndividual ,
+                          <http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Littératures_de_l'imaginaire> .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Serge_Brussolo
+:Serge_Brussolo rdf:type owl:NamedIndividual ;
+                :a_écrit :Les_Cavaliers_de_la_pyramide .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Trafalgar
+:Trafalgar rdf:type owl:NamedIndividual ;
+           :a_langue "espagnol" .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Veronica_Murguía
+:Veronica_Murguía rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#L'Enchanteur
+<http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#L'Enchanteur> rdf:type owl:NamedIndividual ;
+                                                                                      :a_genre :Fantasy ;
+                                                                                      :écrit_par :René_Barjavel ;
+                                                                                      :édité_par :Folio .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Les_Fables_de_l'Humpur
+<http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Les_Fables_de_l'Humpur> rdf:type owl:NamedIndividual ;
+                                                                                                :écrit_par :Pierre_Bordage .
+
+
+###  http://www.semanticweb.org/alexj/ontologies/2021/2/untitled-ontology-7#Maleficio:_El_brujo_y_su_sombra
+:Maleficio:_El_brujo_y_su_sombra rdf:type owl:NamedIndividual ;
+                                 :a_langue "espagnol" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
