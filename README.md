@@ -1,4 +1,4 @@
-# ontology_Protege
+# Ontology project in Protégé
 
 This repository contains all the files that were created in the elaboration of the project. The project was divided into two major steps. 
 
